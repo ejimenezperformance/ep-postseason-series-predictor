@@ -28,7 +28,7 @@ TEAMS = {
 # wins_home / wins_away = games already won in the series
 # ---------------------------------------------------------------------------
 SERIES = {
-    "NLCS": {"home": "MIL", "away": "LAD", "wins_home": 0, "wins_away": 0},
+    "NLCS": {"home": "MIL", "away": "LAD", "wins_home": 2, "wins_away": 0},
     "ALCS": {"home": "TB",  "away": "CLE", "wins_home": 0, "wins_away": 0},
 }
 
