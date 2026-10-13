@@ -97,4 +97,71 @@ python src/backtest.py                 # validacion 2015-2026 (varios minutos; g
 
 ## Results / Resultados
 
-*Pending the real data pull. / Pendiente del pull real.*
+### Headline finding / Hallazgo principal
+
+**Splitting a team into offense, rotation and bullpen did not predict postseason series better than run differential alone.** Over 106 completed series (2015-2026, no 2020), the component model and the Pythagorean baseline scored the same (Brier 0.2426 vs 0.2424; difference +0.0002, 95% CI −0.0120 to +0.0122). Neither model could be shown to beat a coin flip with this sample size.
+
+*Separar bateo, rotación y bullpen no predijo las series de playoffs mejor que el diferencial de carreras. En 106 series, los dos modelos empataron, y ninguno pudo demostrar que le gana a una moneda con este tamaño de muestra.*
+
+### 1. Backtest, 106 series (CONFIRMED)
+
+| Model | Brier | Log loss | Favorite won |
+|---|---|---|---|
+| Component | 0.2426 | 0.6784 | 59.4% |
+| Pythagorean | 0.2424 | 0.6791 | 60.4% |
+| Record | 0.2463 | 0.6867 | 58.5% |
+| Coin flip | 0.2500 | 0.6931 | — |
+
+Paired bootstrap (10,000 resamples), Brier difference:
+
+- Component vs. Pythagorean: **+0.0002**, 95% CI [−0.0120, +0.0122] → no detectable difference
+- Component vs. coin flip: **−0.0074**, 95% CI [−0.0266, +0.0125] → better on average, but the interval crosses zero
+
+By round (component model):
+
+| Round | Series | Brier | Favorite won |
+|---|---|---|---|
+| Wild Card | 32 | 0.2358 | 62.5% |
+| Division Series | 44 | 0.2553 | 52.3% |
+| LCS | 20 | 0.2279 | 65.0% |
+| World Series | 10 | 0.2380 | 70.0% |
+
+Calibration (component model, folded to the favorite's side):
+
+| Predicted bin | Series | Predicted | Actual |
+|---|---|---|---|
+| 50-55% | 37 | 52.5% | 56.8% |
+| 55-60% | 28 | 57.8% | 60.7% |
+| 60-65% | 20 | 62.6% | 55.0% |
+| 65-70% | 17 | 67.1% | 64.7% |
+| 70%+ | 4 | 72.1% | 75.0% |
+
+**INTERPRETATION:** the model is not overconfident: it rarely leaves the 50-70% range, and actual results stay close to what it predicts. The Division Series result (favorites won 52.3% of 44 series) is the closest to pure chance; the LCS and World Series look better but rest on 20 and 10 series, too few to separate from luck.
+
+### 2. 2026 LCS predictions (snapshot: Oct 12, 2026, NLCS 2-0 Milwaukee, ALCS before Game 1)
+
+| Series | Component | Pythagorean | Most likely result |
+|---|---|---|---|
+| NLCS: MIL vs LAD (2-0) | MIL **77.4%** | MIL **81.0%** | MIL in 5 |
+| ALCS: TB vs CLE (0-0) | TB **55.5%** | TB **62.0%** | TB in 6 |
+
+| Team | Pennant (comp.) | Title (comp.) | Pennant (pythag) | Title (pythag) |
+|---|---|---|---|---|
+| Milwaukee Brewers | 77.6% | 49.7% | 81.1% | 58.2% |
+| Tampa Bay Rays | 55.7% | 20.6% | 62.2% | 20.0% |
+| Los Angeles Dodgers | 22.4% | 15.2% | 18.9% | 13.3% |
+| Cleveland Guardians | 44.3% | 14.5% | 37.8% | 8.5% |
+
+Because the backtest shows no difference between the two models, the honest reading is **a range, not a point**: Tampa Bay 55-62% in the ALCS, Milwaukee 77-81% in the NLCS.
+
+**The 2-0 lead outweighs team quality (CONFIRMED arithmetic):** game by game, the component model rates the Dodgers slightly better (Milwaukee 47.8% at a neutral site, driven by LA's wRC+ 112 vs. 108). From 0-0, Milwaukee would have been a 46.5% series underdog. After two home wins, it is 77.4%.
+
+### 3. Sensitivity: Tampa Bay's starter/reliever split
+
+Tampa Bay's starters covered only 657 of 1,443 regular-season innings (openers and bulk relievers), so its "bullpen" FIP (4.47) mixes true relievers with bulk innings. The model's fixed 55/45 starter/reliever weighting **favors** Tampa Bay, because it gives its better starters (3.51 FIP) more weight than their real usage. With Tampa Bay's actual usage (45/55), its ALCS odds drop from **55.5% to 52.8%**. The NLCS does not change.
+
+### What this means / Qué significa
+
+- Postseason series are close to coin flips; even a reasonable model picks the winner about 6 times in 10.
+- More granular inputs (wRC+, starter FIP, reliever FIP) did not add predictive value over runs scored and allowed. In a short series, randomness swamps the difference between those inputs.
+- A larger sample (more seasons, or game-level instead of series-level predictions) would be needed to detect a small real edge.

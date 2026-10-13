@@ -1,0 +1,107 @@
+season,round,series,home_id,away_id,home_name,away_name,best_of,wins_home,wins_away,complete,home_won,p_component,p_pythag,p_record,p_coin
+2015,Wild Card,AL Wild Card Game,147,117,New York Yankees,Houston Astros,1,0,1,True,False,0.4930043035182398,0.5067122826331313,0.5461553993281816,0.5
+2015,Wild Card,NL Wild Card Game,134,112,Pittsburgh Pirates,Chicago Cubs,1,0,1,True,False,0.5313132093094327,0.5541066410687348,0.5463920145882443,0.5
+2015,Division Series,AL Division Series,141,140,Toronto Blue Jays,Texas Rangers,5,3,2,True,True,0.7004235547946732,0.7325211491560404,0.5731350256503199,0.5
+2015,Division Series,AL Division Series,118,117,Kansas City Royals,Houston Astros,5,3,2,True,True,0.40123989055276343,0.47821209745726573,0.6185231253516226,0.5
+2015,Division Series,NL Division Series,138,112,St. Louis Cardinals,Chicago Cubs,5,1,3,True,False,0.4581329591534208,0.5805911982867376,0.5512301336811608,0.5
+2015,Division Series,NL Division Series,119,121,Los Angeles Dodgers,New York Mets,5,2,3,True,False,0.6194676463882242,0.5194995442089589,0.538439075103811,0.5
+2015,LCS,AL Championship Series,118,141,Kansas City Royals,Toronto Blue Jays,7,4,2,True,True,0.36926272223022993,0.341849626953054,0.5401130909482375,0.5
+2015,LCS,NL Championship Series,121,112,New York Mets,Chicago Cubs,7,4,0,True,True,0.4183059787089766,0.4957532108504176,0.4166149484772944,0.5
+2015,World Series,World Series,118,121,Kansas City Royals,New York Mets,7,4,1,True,True,0.4654274097112379,0.5278327403145406,0.5806690352951045,0.5
+2016,Wild Card,AL Wild Card Game,141,110,Toronto Blue Jays,Baltimore Orioles,1,1,0,True,True,0.5729696740163399,0.581661619389934,0.54,0.5
+2016,Wild Card,NL Wild Card Game,121,137,New York Mets,San Francisco Giants,1,0,1,True,False,0.5651571099459493,0.5207344185847955,0.54,0.5
+2016,Division Series,AL Division Series,140,141,Texas Rangers,Toronto Blue Jays,5,0,3,True,False,0.38675986491970277,0.41121448836768637,0.5849271767853477,0.5
+2016,Division Series,AL Division Series,114,111,Cleveland Indians,Boston Red Sox,5,3,0,True,True,0.4222186894414304,0.42688523209166207,0.5337679283426422,0.5
+2016,Division Series,NL Division Series,120,119,Washington Nationals,Los Angeles Dodgers,5,2,3,True,False,0.56179304295906,0.5943915202334348,0.5619953831932262,0.5
+2016,Division Series,NL Division Series,112,137,Chicago Cubs,San Francisco Giants,5,3,1,True,True,0.6154341208223221,0.716780391438287,0.7034798854634229,0.5
+2016,LCS,AL Championship Series,114,141,Cleveland Indians,Toronto Blue Jays,7,4,1,True,True,0.5443998164383392,0.5222696568286691,0.5883230538331519,0.5
+2016,LCS,NL Championship Series,112,119,Chicago Cubs,Los Angeles Dodgers,7,4,2,True,True,0.5827097695731429,0.7415503814815083,0.6829420325697504,0.5
+2016,World Series,World Series,114,112,Cleveland Indians,Chicago Cubs,7,3,4,True,False,0.4381110612974739,0.290997777770196,0.3857753155303521,0.5
+2017,Wild Card,AL Wild Card Game,147,142,New York Yankees,Minnesota Twins,1,1,0,True,True,0.6557580144371975,0.6442721519945672,0.5768062830417632,0.5
+2017,Wild Card,NL Wild Card Game,109,115,Arizona Diamondbacks,Colorado Rockies,1,1,0,True,True,0.5836481272710119,0.5964038359833518,0.5769867093145095,0.5
+2017,Division Series,AL Division Series,117,111,Houston Astros,Boston Red Sox,5,3,1,True,True,0.6527514509672219,0.5949469313090996,0.6096761886293178,0.5
+2017,Division Series,AL Division Series,114,147,Cleveland Indians,New York Yankees,5,2,3,True,False,0.638497345160635,0.6022509534764053,0.64352987246806,0.5
+2017,Division Series,NL Division Series,120,112,Washington Nationals,Chicago Cubs,5,2,3,True,False,0.5494831047699189,0.5407593962116259,0.5739648014758784,0.5
+2017,Division Series,NL Division Series,119,109,Los Angeles Dodgers,Arizona Diamondbacks,5,3,0,True,True,0.5520014449445674,0.5741786876492245,0.6448343098753795,0.5
+2017,LCS,AL Championship Series,117,147,Houston Astros,New York Yankees,7,4,3,True,True,0.5661653130681252,0.5001909340779442,0.6483206876661268,0.5
+2017,LCS,NL Championship Series,119,112,Los Angeles Dodgers,Chicago Cubs,7,4,1,True,True,0.6376203019268605,0.6205549445224849,0.6754350753046037,0.5
+2017,World Series,World Series,119,117,Los Angeles Dodgers,Houston Astros,7,3,4,True,False,0.46211306536634555,0.5368921669848554,0.555805273156428,0.5
+2018,Wild Card,NL Wild Card Game,112,115,Chicago Cubs,Colorado Rockies,1,0,1,True,False,0.5204124987702515,0.5938906949356292,0.5647637337769568,0.5
+2018,Wild Card,AL Wild Card Game,147,133,New York Yankees,Oakland Athletics,1,1,0,True,True,0.6215919199848748,0.5655194899155518,0.5592342155744339,0.5
+2018,Division Series,NL Division Series,158,115,Milwaukee Brewers,Colorado Rockies,5,3,0,True,True,0.513532119349094,0.5904212021694337,0.573245546628476,0.5
+2018,Division Series,NL Division Series,119,144,Los Angeles Dodgers,Atlanta Braves,5,3,1,True,True,0.6648897387492579,0.6269011759245043,0.531838508167157,0.5
+2018,Division Series,AL Division Series,117,114,Houston Astros,Cleveland Indians,5,3,0,True,True,0.668408986942206,0.6487712794589441,0.6549909984491668,0.5
+2018,Division Series,AL Division Series,111,147,Boston Red Sox,New York Yankees,5,3,1,True,True,0.5013273663906384,0.5702575685121138,0.6138618640078799,0.5
+2018,LCS,NL Championship Series,158,119,Milwaukee Brewers,Los Angeles Dodgers,7,3,4,True,False,0.35553051191141366,0.37159685364972234,0.5670255286673854,0.5
+2018,LCS,AL Championship Series,111,117,Boston Red Sox,Houston Astros,7,4,1,True,True,0.43246628929889286,0.42767655260697746,0.5859484466781426,0.5
+2018,World Series,World Series,111,119,Boston Red Sox,Los Angeles Dodgers,7,4,1,True,True,0.5192858727197275,0.5468462603232123,0.7330361685251601,0.5
+2019,Wild Card,NL Wild Card Game,120,158,Washington Nationals,Milwaukee Brewers,1,1,0,True,True,0.5973866966429622,0.6256958407311124,0.5647982104231757,0.5
+2019,Wild Card,AL Wild Card Game,133,139,Oakland Athletics,Tampa Bay Rays,1,0,1,True,False,0.48027330728500583,0.5688477276214424,0.54635968821711,0.5
+2019,Division Series,NL Division Series,144,138,Atlanta Braves,St. Louis Cardinals,5,2,3,True,False,0.5861250669139044,0.5166056018417018,0.5854451960777806,0.5
+2019,Division Series,NL Division Series,119,120,Los Angeles Dodgers,Washington Nationals,5,2,3,True,False,0.643870408572067,0.6667597365072555,0.6679971360912578,0.5
+2019,Division Series,AL Division Series,117,139,Houston Astros,Tampa Bay Rays,5,3,2,True,True,0.6089270883734177,0.6924421070336605,0.6471499723443461,0.5
+2019,Division Series,AL Division Series,147,142,New York Yankees,Minnesota Twins,5,3,0,True,True,0.41476813406554974,0.5369042093862813,0.5397384366546225,0.5
+2019,LCS,NL Championship Series,138,120,St. Louis Cardinals,Washington Nationals,7,0,4,True,False,0.3724213015277985,0.46170248659083746,0.48512541739342485,0.5
+2019,LCS,AL Championship Series,117,147,Houston Astros,New York Yankees,7,4,2,True,True,0.6774708019125459,0.6289215245622506,0.5711867918491437,0.5
+2019,World Series,World Series,117,120,Houston Astros,Washington Nationals,7,3,4,True,False,0.6856350726857949,0.6868723552688176,0.7024217693018235,0.5
+2021,Wild Card,AL Wild Card Game,111,147,Boston Red Sox,New York Yankees,1,1,0,True,True,0.5779444659086819,0.5603972456018743,0.54,0.5
+2021,Wild Card,NL Wild Card Game,119,138,Los Angeles Dodgers,St. Louis Cardinals,1,1,0,True,True,0.6674580029003373,0.6889355224036773,0.6399821109123435,0.5
+2021,Division Series,AL Division Series,117,145,Houston Astros,Chicago White Sox,5,3,1,True,True,0.46691162464857744,0.559842173998541,0.5386908374124655,0.5
+2021,Division Series,AL Division Series,139,111,Tampa Bay Rays,Boston Red Sox,5,1,3,True,False,0.496275599661925,0.6624574247643462,0.6092230454099001,0.5
+2021,Division Series,NL Division Series,158,144,Milwaukee Brewers,Atlanta Braves,5,1,3,True,False,0.5120220585251136,0.49779167171838223,0.5900691969785923,0.5
+2021,Division Series,NL Division Series,137,119,San Francisco Giants,Los Angeles Dodgers,5,2,3,True,False,0.5261384620716998,0.43863433913738326,0.5278519767333729,0.5
+2021,LCS,AL Championship Series,117,111,Houston Astros,Boston Red Sox,7,4,2,True,True,0.4945381413074986,0.680335531101866,0.5537489188808034,0.5
+2021,LCS,NL Championship Series,144,119,Atlanta Braves,Los Angeles Dodgers,7,4,2,True,True,0.34585786248198447,0.31469309216893204,0.27993641340032405,0.5
+2021,World Series,World Series,117,144,Houston Astros,Atlanta Braves,7,2,4,True,False,0.5870623329045345,0.602240994952356,0.599897110952918,0.5
+2022,Wild Card,AL Wild Card Series,114,139,Cleveland Guardians,Tampa Bay Rays,3,2,0,True,True,0.5609804881568027,0.5705533790064374,0.6144267761818996,0.5
+2022,Wild Card,NL Wild Card Series,138,143,St. Louis Cardinals,Philadelphia Phillies,3,0,2,True,False,0.5199056599927941,0.6307384936468419,0.6145674706930058,0.5
+2022,Wild Card,AL Wild Card Series,141,136,Toronto Blue Jays,Seattle Mariners,3,0,2,True,False,0.6566011849446611,0.5827090665799004,0.5783562565946723,0.5
+2022,Wild Card,NL Wild Card Series,121,135,New York Mets,San Diego Padres,3,1,2,True,False,0.6892845529408553,0.6754585421931565,0.6687964508796784,0.5
+2022,Division Series,NL Division Series,144,143,Atlanta Braves,Philadelphia Phillies,5,1,3,True,False,0.6014564323422587,0.6591409622727372,0.6748135106210428,0.5
+2022,Division Series,AL Division Series,117,136,Houston Astros,Seattle Mariners,5,3,0,True,True,0.7323387484885089,0.7124084831726885,0.6990927087145723,0.5
+2022,Division Series,AL Division Series,147,114,New York Yankees,Cleveland Guardians,5,3,2,True,True,0.6738501646015278,0.723152719644456,0.5974953587847844,0.5
+2022,Division Series,NL Division Series,119,135,Los Angeles Dodgers,San Diego Padres,5,1,3,True,False,0.7454008853557132,0.8325248022203884,0.7616021166868159,0.5
+2022,LCS,NL Championship Series,135,143,San Diego Padres,Philadelphia Phillies,7,1,4,True,False,0.3721078430053303,0.4905533526158221,0.5396064240005038,0.5
+2022,LCS,AL Championship Series,117,147,Houston Astros,New York Yankees,7,4,0,True,True,0.5815336885573991,0.5030841269896771,0.6123779950781681,0.5
+2022,World Series,World Series,117,143,Houston Astros,Philadelphia Phillies,7,4,2,True,True,0.6357824613299934,0.7498592536180766,0.7570983289131474,0.5
+2023,Wild Card,AL Wild Card Series,139,140,Tampa Bay Rays,Texas Rangers,3,0,2,True,False,0.6387825697083768,0.5927102629891162,0.6423552046358859,0.5
+2023,Wild Card,AL Wild Card Series,142,141,Minnesota Twins,Toronto Blue Jays,3,2,0,True,True,0.5935905743911526,0.60129379856118,0.5413853045594348,0.5
+2023,Wild Card,NL Wild Card Series,158,109,Milwaukee Brewers,Arizona Diamondbacks,3,0,2,True,False,0.5483723571482477,0.6516368912808144,0.6319828294662342,0.5
+2023,Wild Card,NL Wild Card Series,143,146,Philadelphia Phillies,Miami Marlins,3,2,0,True,True,0.6599950134252779,0.6853593099662563,0.6141966122029152,0.5
+2023,Division Series,AL Division Series,110,140,Baltimore Orioles,Texas Rangers,5,0,3,True,False,0.4976075076736006,0.4819126595894091,0.6429454533953324,0.5
+2023,Division Series,AL Division Series,117,142,Houston Astros,Minnesota Twins,5,3,1,True,True,0.45889035259601724,0.5207415573571285,0.5498457451145842,0.5
+2023,Division Series,NL Division Series,144,143,Atlanta Braves,Philadelphia Phillies,5,1,3,True,False,0.6433381877370274,0.6689477204401095,0.6768912771307385,0.5
+2023,Division Series,NL Division Series,119,109,Los Angeles Dodgers,Arizona Diamondbacks,5,0,3,True,False,0.6731496601441715,0.7468462557695801,0.6946358924399817,0.5
+2023,LCS,AL Championship Series,117,140,Houston Astros,Texas Rangers,7,3,4,True,False,0.4688619013464601,0.4705022441757323,0.5125483104768002,0.5
+2023,LCS,NL Championship Series,143,109,Philadelphia Phillies,Arizona Diamondbacks,7,3,4,True,False,0.6811700697027983,0.6409169080393451,0.5928877953136751,0.5
+2023,World Series,World Series,140,109,Texas Rangers,Arizona Diamondbacks,7,4,1,True,True,0.6619643910308262,0.7346512949030433,0.5928877953136751,0.5
+2024,Wild Card,AL Wild Card Series,117,116,Houston Astros,Detroit Tigers,3,0,2,True,False,0.6033977341199801,0.6084834483267022,0.5831595765300848,0.5
+2024,Wild Card,AL Wild Card Series,110,118,Baltimore Orioles,Kansas City Royals,3,0,2,True,False,0.6128247100785004,0.5514064797702448,0.6054154661053872,0.5
+2024,Wild Card,NL Wild Card Series,158,121,Milwaukee Brewers,New York Mets,3,1,2,True,False,0.5247865410977461,0.6238389252261498,0.5966531651365464,0.5
+2024,Wild Card,NL Wild Card Series,135,144,San Diego Padres,Atlanta Braves,3,2,0,True,True,0.5385887372272768,0.548023099856516,0.5966531651365464,0.5
+2024,Division Series,AL Division Series,114,116,Cleveland Guardians,Detroit Tigers,5,3,2,True,True,0.5011549462110919,0.5752511969757457,0.5908691771250301,0.5
+2024,Division Series,NL Division Series,143,121,Philadelphia Phillies,New York Mets,5,1,3,True,False,0.5889618148487182,0.5660192656622428,0.5849271767853477,0.5
+2024,Division Series,AL Division Series,147,118,New York Yankees,Kansas City Royals,5,3,1,True,True,0.5869608088517435,0.5758445032305298,0.6071734087459706,0.5
+2024,Division Series,NL Division Series,119,135,Los Angeles Dodgers,San Diego Padres,5,3,2,True,True,0.5025397150115868,0.5853559951343816,0.5742220563787575,0.5
+2024,LCS,NL Championship Series,119,121,Los Angeles Dodgers,New York Mets,7,4,2,True,True,0.5994034291897367,0.6235893602505496,0.6340014293534414,0.5
+2024,LCS,AL Championship Series,147,114,New York Yankees,Cleveland Guardians,7,4,1,True,True,0.6498796709074766,0.5855564179678999,0.5321961698092941,0.5
+2024,World Series,World Series,119,147,Los Angeles Dodgers,New York Yankees,7,4,1,True,True,0.5332397245599276,0.5205357529814203,0.5679652410851478,0.5
+2025,Wild Card,AL Wild Card Series,114,116,Cleveland Guardians,Detroit Tigers,3,1,2,True,False,0.456851145443758,0.48872578677221645,0.5690532818129359,0.5
+2025,Wild Card,NL Wild Card Series,112,135,Chicago Cubs,San Diego Padres,3,2,1,True,True,0.5973198125266691,0.6150017280894006,0.5783562565946723,0.5
+2025,Wild Card,AL Wild Card Series,147,111,New York Yankees,Boston Red Sox,3,2,1,True,True,0.6137382373815751,0.6058271214942937,0.6057915614115068,0.5
+2025,Wild Card,NL Wild Card Series,119,113,Los Angeles Dodgers,Cincinnati Reds,3,2,0,True,True,0.689395259258923,0.6549494042836858,0.6493736225465243,0.5
+2025,Division Series,NL Division Series,158,112,Milwaukee Brewers,Chicago Cubs,5,3,2,True,True,0.5530773775095463,0.5495414875726715,0.5739648014758784,0.5
+2025,Division Series,AL Division Series,141,147,Toronto Blue Jays,New York Yankees,5,3,1,True,True,0.4186475772982414,0.4147120897547937,0.5150646144000002,0.5
+2025,Division Series,NL Division Series,143,119,Philadelphia Phillies,Los Angeles Dodgers,5,1,3,True,False,0.5352707945596564,0.5071223526270846,0.5505299819245677,0.5
+2025,Division Series,AL Division Series,136,116,Seattle Mariners,Detroit Tigers,5,3,2,True,True,0.5584209294925838,0.5206508591826928,0.5498457451145842,0.5
+2025,LCS,AL Championship Series,141,136,Toronto Blue Jays,Seattle Mariners,7,4,3,True,True,0.4954530355687288,0.5165614437158363,0.5670774269765502,0.5
+2025,LCS,NL Championship Series,158,119,Milwaukee Brewers,Los Angeles Dodgers,7,0,4,True,False,0.45901087578034894,0.5619122098237328,0.567714791487931,0.5
+2025,World Series,World Series,141,119,Toronto Blue Jays,Los Angeles Dodgers,7,3,4,True,False,0.42257653081434715,0.42288069607076495,0.5263194408393956,0.5
+2026,Wild Card,NL Wild Card Series,144,143,Atlanta Braves,Philadelphia Phillies,3,2,1,True,True,0.5255681997725715,0.6579297011171161,0.6147255770403435,0.5
+2026,Wild Card,AL Wild Card Series,117,145,Houston Astros,Chicago White Sox,3,0,2,True,False,0.5149091718082721,0.4766717923261581,0.5322979764889529,0.5
+2026,Wild Card,AL Wild Card Series,147,111,New York Yankees,Boston Red Sox,3,2,0,True,True,0.5435758067342122,0.6185776383037576,0.6197736263420086,0.5
+2026,Wild Card,NL Wild Card Series,135,112,San Diego Padres,Chicago Cubs,3,2,0,True,True,0.5226230578809818,0.4646963120113532,0.5783023059812115,0.5
+2026,Division Series,AL Division Series,114,145,Cleveland Guardians,Chicago White Sox,5,3,2,True,True,0.5460253300577964,0.46291155638795173,0.5266072443235148,0.5
+2026,Division Series,NL Division Series,119,144,Los Angeles Dodgers,Atlanta Braves,5,3,1,True,True,0.7064444801853086,0.6174030956969898,0.5864038728004729,0.5
+2026,Division Series,AL Division Series,139,147,Tampa Bay Rays,New York Yankees,5,3,0,True,True,0.49178304286708624,0.44532586465037605,0.5675171308898822,0.5
+2026,Division Series,NL Division Series,158,135,Milwaukee Brewers,San Diego Padres,5,3,1,True,True,0.6918005936179576,0.7127134447590882,0.6549909984491668,0.5

@@ -1,0 +1,9 @@
+team,model,p_pennant,p_title
+MIL,component,0.77625,0.49656
+LAD,component,0.22375,0.1525
+TB,component,0.5566,0.20613
+CLE,component,0.4434,0.14481
+MIL,pythag,0.8112,0.58162
+LAD,pythag,0.1888,0.13319
+TB,pythag,0.62184,0.19971
+CLE,pythag,0.37816,0.08548
