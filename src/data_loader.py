@@ -62,11 +62,12 @@ def fip_components(df):
     return 13 * df["homeRuns"] + 3 * (df["baseOnBalls"] + hbp) - 2 * df["strikeOuts"]
 
 
-def build_team_table(hit_splits, pit_splits, pitcher_splits_by_team):
+def build_team_table(hit_splits, pit_splits, pitcher_splits_by_team, teams=None):
     """
     Pure function (testable without network).
     hit_splits / pit_splits: stats[0].splits from /teams/stats (all 30 teams)
     pitcher_splits_by_team: {our_key: stats[0].splits from /stats?teamId=...}
+    teams: {our_key: mlb_id}; defaults to the 4 teams in config.TEAMS
     """
     hit = _team_frame(hit_splits)
     pit = _team_frame(pit_splits)
@@ -83,10 +84,13 @@ def build_team_table(hit_splits, pit_splits, pitcher_splits_by_team):
     fip_c = lg_era - fip_components(pit).sum() / pit["IP"].sum()
     hit["wOBA"] = num / den
 
+    if teams is None:
+        teams = {k: v["mlb_id"] for k, v in config.TEAMS.items()}
+
     rows = []
-    for key, info in config.TEAMS.items():
-        h = hit[hit["team_id"] == info["mlb_id"]]
-        p = pit[pit["team_id"] == info["mlb_id"]]
+    for key, mlb_id in teams.items():
+        h = hit[hit["team_id"] == mlb_id]
+        p = pit[pit["team_id"] == mlb_id]
         if h.empty or p.empty or key not in pitcher_splits_by_team:
             continue
         h, p = h.iloc[0], p.iloc[0]
@@ -118,6 +122,25 @@ def _get(session, path, **params):
     r = session.get(f"{API}/{path}", params=params, timeout=60)
     r.raise_for_status()
     return r.json()["stats"][0]["splits"]
+
+
+def make_session():
+    import requests
+    s = requests.Session()
+    s.headers["User-Agent"] = "ep-postseason-series-predictor (research)"
+    return s
+
+
+def fetch_season_raw(session, season, team_ids):
+    """Team hitting/pitching (all 30) + per-team pitcher lines for team_ids."""
+    common = {"season": season, "stats": "season", "sportIds": 1}
+    hit = _get(session, "teams/stats", group="hitting", **common)
+    pit = _get(session, "teams/stats", group="pitching", **common)
+    pitchers = {}
+    for tid in team_ids:
+        pitchers[str(tid)] = _get(session, "stats", group="pitching", playerPool="ALL",
+                                  limit=3000, teamId=tid, **common)
+    return {"hit": hit, "pit": pit, "pitchers": pitchers}
 
 
 def main():
