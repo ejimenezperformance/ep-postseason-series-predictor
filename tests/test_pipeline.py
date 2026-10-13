@@ -12,7 +12,7 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "src"))
 import config  # noqa: E402
 import model  # noqa: E402
 import predict  # noqa: E402
-from data_loader import build_team_table, _ip_to_float  # noqa: E402
+from data_loader import build_team_table, ip_to_float  # noqa: E402
 from series import series_win_prob, length_distribution  # noqa: E402
 
 results = []
@@ -77,18 +77,45 @@ for name, s in config.SERIES.items():
 check("WS home field goes to better record (MIL over TB)", predict.ws_home_field("TB", "MIL")[0] == "MIL")
 
 # --- loader -------------------------------------------------------------------
-check("IP 45.2 = 45 2/3", abs(_ip_to_float(45.2) - (45 + 2 / 3)) < 1e-9)
-bat = pd.DataFrame({"Team": ["MIL", "LAD", "TBR", "CLE", "NYY"], "G": [162] * 5,
-                    "R": [790, 820, 720, 680, 800], "wRC+": [108, 116, 104, 96, 110]})
-tp = pd.DataFrame({"Team": ["MIL", "LAD", "TBR", "CLE", "NYY"], "R": [610, 640, 600, 650, 660]})
-pit = pd.DataFrame({"Team": ["MIL", "MIL", "LAD", "LAD", "TBR", "TBR", "CLE", "CLE", "- - -"],
-                    "G": [30, 60, 31, 65, 30, 70, 28, 66, 40], "GS": [30, 0, 31, 0, 30, 0, 28, 1, 10],
-                    "IP": [180.1, 65.0, 175.2, 66.1, 170.0, 70.2, 165.0, 64.0, 90.0],
-                    "FIP": [3.6, 3.4, 3.5, 3.9, 3.4, 3.6, 3.9, 3.3, 4.2]})
-tbl = build_team_table(bat, tp, pit)
-check("Loader finds all 4 teams (incl. TBR alias)", set(tbl["team"]) == set(config.TEAMS))
-check("Loader splits SP/RP (CLE reliever with 1 GS stays RP)",
-      abs(tbl.set_index("team").loc["CLE", "fip_rp"] - 3.3) < 1e-9)
+check("IP '45.2' = 45 2/3", abs(ip_to_float("45.2") - (45 + 2 / 3)) < 1e-9)
+check("IP '18.0' = 18", ip_to_float("18.0") == 18)
+
+
+def team_hit(tid, runs, hits, hr):
+    # Same shape as stats[0].splits from /teams/stats?group=hitting
+    return {"team": {"id": tid, "name": str(tid)}, "stat": {
+        "gamesPlayed": 162, "runs": runs, "hits": hits, "doubles": 280, "triples": 20,
+        "homeRuns": hr, "baseOnBalls": 520, "intentionalWalks": 20, "hitByPitch": 60,
+        "atBats": 5500, "sacFlies": 40, "plateAppearances": 6160}}
+
+
+def team_pit(tid, runs, er, hr, k):
+    return {"team": {"id": tid, "name": str(tid)}, "stat": {
+        "gamesPlayed": 162, "runs": runs, "earnedRuns": er, "inningsPitched": "1440.0",
+        "homeRuns": hr, "baseOnBalls": 500, "hitByPitch": 55, "strikeOuts": k}}
+
+
+def pitcher(name, g, gs, ip, hr, bb, hbp, k):
+    return {"player": {"fullName": name}, "stat": {
+        "gamesPitched": g, "gamesStarted": gs, "inningsPitched": ip,
+        "homeRuns": hr, "baseOnBalls": bb, "hitByPitch": hbp, "strikeOuts": k}}
+
+
+ids = [info["mlb_id"] for info in config.TEAMS.values()] + [147]
+hit_s = [team_hit(t, 720, 1350, 190) for t in ids]
+hit_s[0] = team_hit(ids[0], 800, 1420, 220)  # MIL better offense
+pit_s = [team_pit(t, 680, 620, 180, 1400) for t in ids]
+pl = {k: [pitcher("SP", 30, 30, "170.1", 20, 50, 5, 170),
+          pitcher("RP", 66, 1, "64.0", 6, 22, 2, 75)] for k in config.TEAMS}
+tbl = build_team_table(hit_s, pit_s, pl).set_index("team")
+check("Loader finds all 4 teams by MLB id", set(tbl.index) == set(config.TEAMS))
+flat = build_team_table([team_hit(t, 720, 1350, 190) for t in ids], pit_s, pl).set_index("team")
+check("All-equal league -> every wRC+ = 100", (flat["wrc_plus"] - 100).abs().max() < 1e-6)
+check("Average team in a league with one better team -> wRC+ < 100", tbl.loc["LAD", "wrc_plus"] < 100)
+check("Better offense -> wRC+ > 100", tbl.loc["MIL", "wrc_plus"] > 100)
+check("Reliever with 1 GS in 66 G stays RP", abs(tbl.loc["CLE", "ip_rp"] - 64) < 1e-9)
+check("FIP constant makes league FIP = league ERA",
+      abs(build_team_table(hit_s, pit_s, pl).attrs["lg_fip"] - 9 * 620 / 1440) < 1e-9)
 
 passed = sum(ok for _, ok in results)
 print(f"\n{passed}/{len(results)} checks passed")

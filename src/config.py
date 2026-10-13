@@ -13,17 +13,13 @@ SEASON = 2026
 
 # ---------------------------------------------------------------------------
 # Teams still alive (confirmed Oct 12, 2026) / Equipos vivos (confirmado 12-oct-2026)
-# FanGraphs sometimes uses different abbreviations; aliases cover that.
+# mlb_id = team id in the official MLB Stats API
 # ---------------------------------------------------------------------------
 TEAMS = {
-    "MIL": {"name": "Milwaukee Brewers",  "league": "NL", "wins": 103, "losses": 59,
-            "aliases": ["MIL"]},
-    "LAD": {"name": "Los Angeles Dodgers", "league": "NL", "wins": 100, "losses": 62,
-            "aliases": ["LAD", "LA"]},
-    "TB":  {"name": "Tampa Bay Rays",      "league": "AL", "wins": 98,  "losses": 64,
-            "aliases": ["TB", "TBR", "TBD", "TAM"]},
-    "CLE": {"name": "Cleveland Guardians", "league": "AL", "wins": 85,  "losses": 77,
-            "aliases": ["CLE", "CLG"]},
+    "MIL": {"name": "Milwaukee Brewers",   "league": "NL", "wins": 103, "losses": 59, "mlb_id": 158},
+    "LAD": {"name": "Los Angeles Dodgers", "league": "NL", "wins": 100, "losses": 62, "mlb_id": 119},
+    "TB":  {"name": "Tampa Bay Rays",      "league": "AL", "wins": 98,  "losses": 64, "mlb_id": 139},
+    "CLE": {"name": "Cleveland Guardians", "league": "AL", "wins": 85,  "losses": 77, "mlb_id": 114},
 }
 
 # ---------------------------------------------------------------------------

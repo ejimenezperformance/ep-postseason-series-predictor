@@ -21,7 +21,7 @@ Two models run side by side on the same data, with the same home-field rule.
 
 | Step | Component model (A) | Pythagorean baseline (B) |
 |---|---|---|
-| Offense | Team wRC+ | Runs scored |
+| Offense | Team wRC+ (approximated from wOBA, see below) | Runs scored |
 | Run prevention | 55% starter FIP + 45% reliever FIP (IP-weighted), relative to league FIP | Runs allowed |
 | Expected runs | RS = lgR/G × (wRC+/100) × opponent pitching index | — |
 | Game win % (neutral) | Pythagenpat on expected RS/RA | Pythagenpat season win %, then log5 |
@@ -29,18 +29,26 @@ Two models run side by side on the same data, with the same home-field rule.
 | Series | Exact best-of-7 recursion from the current series state, 2-3-2 format | Same |
 | World Series | 100,000-run Monte Carlo; home field to the better regular-season record | Same |
 
+**Data source:** the official MLB Stats API (`statsapi.mlb.com`). FanGraphs was the first choice, but it blocks automated `pybaseball` requests (HTTP error on `leaders-legacy.aspx`), so wOBA, wRC+ and FIP are computed in `src/data_loader.py` from raw counting stats:
+
+- wOBA uses standard linear weights; wRC+ ≈ 100 × ((wOBA − lgwOBA)/1.24 + lgR/PA) / (lgR/PA).
+- FIP = (13·HR + 3·(BB+HBP) − 2·K) / IP + C, with C chosen so league FIP equals league ERA.
+- Pitchers are pulled per team, so a pitcher traded mid-season counts only for the innings he threw for each club.
+
+*Fuente: API oficial de MLB. FanGraphs bloquea las descargas automáticas, así que wOBA, wRC+ y FIP se calculan aquí a partir de estadísticas básicas.*
+
 Optional hook: the share of each team's relievers flagged **RED** by [`ep-bullpen-fatigue-risk`](https://github.com/ejimenezperformance/ep-bullpen-fatigue-risk) can inflate that bullpen's FIP (`BULLPEN_RED_SHARE` in `src/config.py`). It is **off by default** and the penalty size is an untested assumption.
 
 ## Labels / Etiquetas
 
-- **CONFIRMED** — arithmetic and probability math, verified by 23 automated checks (`tests/test_pipeline.py`), including a closed-form check of the series recursion and agreement between the Monte Carlo and the exact series odds.
-- **INTERPRETATION** — every weight in `config.py` (55/45 starter/reliever split, 0.54 home win rate, fatigue penalty). They are reasoned defaults, **not fitted** to past postseasons.
+- **CONFIRMED** — arithmetic and probability math, verified by 28 automated checks (`tests/test_pipeline.py`), including a closed-form check of the series recursion and agreement between the Monte Carlo and the exact series odds.
+- **INTERPRETATION** — every weight in `config.py` (55/45 starter/reliever split, 0.54 home win rate, fatigue penalty) and the wOBA linear weights / 1.24 scale. They are reasoned defaults, **not fitted** to past postseasons or to 2026 run environment.
 
 ## Limitations / Limitaciones
 
 1. Regular-season stats; postseason rosters and usage differ (shorter starts, top relievers used more).
 2. No game-by-game starting-pitcher matchups yet (planned Phase 2).
-3. Pitchers traded mid-season appear on FanGraphs as a combined line and are left out of the team SP/RP split.
+3. wRC+ here is an approximation with **no park adjustment** and generic linear weights, so it will not match FanGraphs exactly. Position players who pitched are included in the bullpen line (tiny innings, negligible effect).
 4. Weights are not calibrated; there is no backtest in this version, so the odds should be read as a structured estimate, not a validated forecast.
 5. Even well-built playoff models pick series winners only modestly better than chance. Treat every number here with that in mind.
 
@@ -48,8 +56,8 @@ Optional hook: the share of each team's relievers flagged **RED** by [`ep-bullpe
 
 ```
 pip install -r requirements.txt
-python tests/test_pipeline.py          # debe decir 23/23 checks passed
-python src/data_loader.py              # pull real de FanGraphs -> "OK: los 4 equipos vivos aparecen"
+python tests/test_pipeline.py          # debe decir 28/28 checks passed
+python src/data_loader.py              # pull real de la API de MLB -> "OK: los 4 equipos vivos aparecen"
 python src/predict.py                  # probabilidades reales -> outputs/
 python src/predict.py --synthetic      # demo con datos inventados (marcado SYNTHETIC)
 ```
